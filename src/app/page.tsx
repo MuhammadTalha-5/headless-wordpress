@@ -9,7 +9,7 @@ export default function Home() {
             We invest in the world’s potential
           </h1>
           <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            Here at Flowbite we focus on markets where technology, innovation,
+            Here at Acgile we focus on markets where technology, innovation,
             and capital can unlock long-term value and drive economic growth.
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
