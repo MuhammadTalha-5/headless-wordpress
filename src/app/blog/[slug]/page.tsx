@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import {GET_POST_BY_SLUG, GET_LATEST_POSTS} from '@/queries/GetPostBySlug';
+import Link from 'next/link';
 import { useQuery } from "@apollo/client";
 import Image from 'next/image';
 type Params = {
@@ -97,9 +98,9 @@ const SinglePost = ({ params }: Params) => {
         {/* Post Info */}
         <div className='text-left'>
           {/* Post Title */}
-          <a href={`/blog/${post.slug}`} className='text-lg font-medium hover:underline'>
+          <Link href={`/blog/${post.slug}`} className='text-lg font-medium hover:underline'>
             {post.title}
-          </a>
+          </Link>
           
           {/* Post Author and Date */}
           <div className='text-sm text-gray-600 mt-1'>
