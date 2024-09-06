@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { GET_POSTS_QUERY } from "@/queries/getPostsQuery";
 import { useQuery } from "@apollo/client";
-import client from "@/apolloClient";
+import Image from 'next/image';
 
 export default function Blog () {
-  const { loading, error, data } = useQuery(GET_POSTS_QUERY,{client});
+  const { loading, error, data } = useQuery(GET_POSTS_QUERY);
  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -19,12 +19,12 @@ export default function Blog () {
         </div>
       </section>
 
-      <div className='grid grid-cols-4 gap-4 mt-5 mx-20'>
+      <div className='grid grid-cols-4 gap-4 mt-5 mx-20 mb-5'>
         {data.posts.nodes.map((post: any) => (
         <div key={post.id} className='max-w-sm bg-white border border-gray-200 rounded-lg shadow'>
           {post.featuredImage?.node?.sourceUrl && (
-          <Link href={post.slug}>
-            <img
+          <Link href={`/blog/${post.slug}`}>
+            <Image
               className='rounded-t-lg'
               src={post.featuredImage.node.sourceUrl}
               alt={post.featuredImage.node.altText || post.title}
@@ -36,9 +36,12 @@ export default function Blog () {
           <div className='p-5'>
             
               {post.categories.nodes.map((category:any) => (
-               <Link href="#" className='text-purple-700 pb-4' key={category.slug}>{category.name}</Link>
+               <Link href="#" className='text-purple-700 pb-4 px-1' key={category.slug}>{category.name}</Link>
               ))}
-            <Link href='#'>
+              {post.author.node.avatar?.url && (
+               <Link href="#" className='text-blue-600-700 pb-4 px-1' key={post.author.node.name}>{post.author.node.name}</Link>
+              )}
+            <Link href={`/blog/${post.slug}`}>
               <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>
               {post.title}
               </h5>
