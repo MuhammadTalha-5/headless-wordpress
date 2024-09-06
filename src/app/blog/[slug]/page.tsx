@@ -80,7 +80,7 @@ const SinglePost = ({ params }: Params) => {
     </div>
 
     {/* Right Column (30%) */}
-    <div className='w-full md:w-3/10 bg-gray-100 rounded-lg text-center p-4'>
+    <div className='w-full md:w-3/10 bg-gray-50 rounded-lg text-center p-4'>
   <h2 className='text-xl font-semibold mb-4'>Latest Posts</h2>
   <ul>
     {latestPosts.length > 0 ? latestPosts.map((post: any) => (
