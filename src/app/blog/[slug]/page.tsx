@@ -10,6 +10,13 @@ type Params = {
     };
 };
 
+export async function generateMetaData({params}: Params){
+  const {slug} = params;
+
+ 
+
+}
+
 const SinglePost = ({ params }: Params) => {
     const {slug} = params;
     const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
@@ -25,7 +32,7 @@ const SinglePost = ({ params }: Params) => {
 
 
   return (
-    <div className='container mx-auto px-10 py-10 mt-5'>
+    <div className='container mx-auto md:px-[130px] py-10 mt-5'>
   <div className='flex flex-col lg:flex-row'>
     {/* Left Column (70%) */}
     <div className='w-full md:w-7/10 lg:pr-8'>
@@ -66,7 +73,7 @@ const SinglePost = ({ params }: Params) => {
       <div className='py-5 mt-5'>
         <span className='font-bold'>Tags:</span>
         {data.post.tags.nodes.map((tag:any) => (
-        <span className='p-2 text-center bg-gray-600 text-white rounded-lg mx-2' key={tag.slug}>{tag.name}</span>
+        <span className='p-2 text-center text-sm bg-gray-600 text-white rounded-lg mx-2' key={tag.slug}>{tag.name}</span>
        ))}
       </div>
 
@@ -98,7 +105,7 @@ const SinglePost = ({ params }: Params) => {
         {/* Post Info */}
         <div className='text-left'>
           {/* Post Title */}
-          <Link href={`/blog/${post.slug}`} className='text-lg font-medium hover:underline'>
+          <Link href={`/blog/${post.slug}`} className='text-md font-medium hover:underline'>
             {post.title}
           </Link>
           

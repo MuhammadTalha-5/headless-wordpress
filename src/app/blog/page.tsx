@@ -19,7 +19,7 @@ export default function Blog () {
         </div>
       </section>
 
-      <div className='grid grid-cols-4 gap-4 mt-5 mx-20 mb-5'>
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-5 mx-20 mb-5'>
         {data.posts.nodes.map((post: any) => (
         <div key={post.id} className='max-w-sm bg-white border border-gray-200 rounded-lg shadow'>
           {post.featuredImage?.node?.sourceUrl && (
@@ -46,7 +46,7 @@ export default function Blog () {
               {post.title}
               </h5>
             </Link>
-            <p className='mb-3 font-normal text-gray-700' dangerouslySetInnerHTML={{ __html: post.excerpt }}>
+            <p className='mb-3 font-normal text-gray-700' dangerouslySetInnerHTML={{ __html: post.excerpt.slice(0,80)+ '...' }}>
             </p>
             <Link
               href='#'
