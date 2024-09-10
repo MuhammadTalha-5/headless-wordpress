@@ -1,6 +1,6 @@
 // app/about
 
-import MotionComp from "../components/MotionComp";
+import MotionComp from "../../components/MotionComp";
 
 export default function page (){
     return (
