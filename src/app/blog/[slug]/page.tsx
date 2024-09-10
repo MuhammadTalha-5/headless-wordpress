@@ -10,12 +10,7 @@ type Params = {
     };
 };
 
-export async function generateMetaData({params}: Params){
-  const {slug} = params;
 
- 
-
-}
 
 const SinglePost = ({ params }: Params) => {
     const {slug} = params;
